@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LocalProducts</string>
+    <string name="title_home">买</string>
+    <string name="title_scenery">赏</string>
+    <string name="title_msg">撩</string>
+    <string name="title_share">享</string>
+    <string name="title_mine">我</string>
+</resources>
