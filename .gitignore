@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.gitignore
+/gradle
+build/kotlin/
+app/libs/
+libs/
+!/build.gradle
