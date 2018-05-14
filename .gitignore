@@ -6,3 +6,4 @@ app/libs/
 !/build.gradle
 /.idea/
 /app/app.iml
+/build/
