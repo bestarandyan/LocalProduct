@@ -17,4 +17,5 @@ abstract class BaseFragment : Fragment() {
     }
 
     abstract fun getViewId():Int
+    abstract fun initView()
 }

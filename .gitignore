@@ -4,3 +4,4 @@
 build/kotlin/
 app/libs/
 !/build.gradle
+/.idea/

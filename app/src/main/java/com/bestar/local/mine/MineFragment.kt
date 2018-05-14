@@ -9,6 +9,8 @@ import com.bestar.local.R
 class MineFragment :BaseFragment(){
 
 
+    override fun initView() {
+    }
 
     override fun getViewId(): Int {
         return R.layout.fragment_mine

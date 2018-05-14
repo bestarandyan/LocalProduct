@@ -9,6 +9,9 @@ import com.bestar.local.R
 class ProductsFragment :BaseFragment(){
 
 
+    override fun initView() {
+
+    }
 
     override fun getViewId(): Int {
         return R.layout.fragment_products
