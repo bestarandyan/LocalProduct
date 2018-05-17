@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.bestar.local.Base.BaseFragment
@@ -28,7 +29,11 @@ class SceneryFragment :BaseFragment(),SwipeRefreshLayout.OnRefreshListener, Best
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+    }
+
+    override fun onResume() {
         getData(0)
+        super.onResume()
     }
 
     override fun initView() {
@@ -40,7 +45,7 @@ class SceneryFragment :BaseFragment(),SwipeRefreshLayout.OnRefreshListener, Best
         recyclerView.setLoadmoreString("玩命加载中...")
     }
 
-    fun getData(page:Int){
+    private fun getData(page:Int){
         var request = GetSceneryDataRequest()
         request.page = page
         request.pageSize = 20
@@ -52,13 +57,19 @@ class SceneryFragment :BaseFragment(),SwipeRefreshLayout.OnRefreshListener, Best
 
 
 
-
     override fun onErrorData(p0: ErrorResponse?) {
 
     }
 
     override fun onReceivedData(response: SceneryResopnse?) {
+        Log.e("请求结束====","adsfadsfadsfadsf")
+        if (response!=null){
+            activity!!.runOnUiThread( {
+                recyclerView.setAdapter(SceneryAdapter(activity!!, response.items!!))
+                recyclerView.setOnRefreshComplete()
 
+            })
+        }
 
     }
 
@@ -67,7 +78,7 @@ class SceneryFragment :BaseFragment(),SwipeRefreshLayout.OnRefreshListener, Best
     }
 
     override fun onRefresh() {
-        Toast.makeText(activity,"这是一次下拉刷新",Toast.LENGTH_LONG).show()
+        getData(0)
     }
 
 
